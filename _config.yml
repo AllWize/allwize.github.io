@@ -4,7 +4,7 @@ url                       :  https://allwize.github.io
 repository                : "allwize/allwize.github.io"
 
 theme                     : jekyll-theme-cayman
-breadcrums                : true
+breadcrumbs               : true
 
 markdown                  : kramdown
 highlighter               : rouge
