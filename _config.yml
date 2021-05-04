@@ -1,4 +1,16 @@
-theme: jekyll-theme-cayman
-title: AllWize Wiki
-description: A review of products and projects by AllWize.io
-url: https://allwize.github.io
+title                     : AllWize Wiki
+description               : A review of products and projects by AllWize.io
+url                       :  https://allwize.github.io
+repository                : "allwize/allwize.github.io"
+
+theme                     : jekyll-theme-cayman
+breadcrums                : true
+
+markdown                  : kramdown
+highlighter               : rouge
+lsi                       : false
+excerpt_separator         : "\n\n"
+incremental               : false
+
+twitter:
+  username                : &allwize
