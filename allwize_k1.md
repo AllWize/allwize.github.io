@@ -1,3 +1,6 @@
+title: AllWize K1
+permalink: /k1/
+
 ## AllWize K1
 
 The Allwize K1 Shield is an Arduino-compatible shield based on the RadioCrafts RC1701HP module.
