@@ -1,20 +1,13 @@
-title                     : AllWize Wiki
-description               : A review of products and projects by AllWize.io
-url                       :  https://allwize.github.io
-repository                : "allwize/allwize.github.io"
+title: AllWize Wiki
+author: AllWize
+email: github@allwize.io
+description: >
+  A review of products and projects by AllWize.io
 
-remote_theme              : rundocs/jekyll-rtd-theme
-#theme                     : jekyll-theme-cayman
-breadcrumbs               : true
+remote_theme: rundocs/jekyll-rtd-theme
 
-markdown                  : kramdown
-highlighter               : rouge
-lsi                       : false
-excerpt_separator         : "\n\n"
-incremental               : false
+readme_index:
+  with_frontmatter: true
 
-twitter:
-  username                : &allwize
-
-github:
-  is_project_page         : false
+plugins:
+  - github-pages  
