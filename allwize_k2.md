@@ -1,25 +1,28 @@
+---
+title: "AllWize K2"
+---
+
 The AllWize K2 is an Arduino(TM) MKR compatible board based on the SAMD21G microchip and a RadioCrafts RC1701HP module.
 
-[[File:20190504_231200s.jpg|800x600px|none|left|AllWize K2 RevA]]
+![AllWize K2 RevA](images/allwize_k2.jpg)
 
+## Reference links
 
-== Reference links ==
+* [AllWize K2 product page](https://www.allwize.io/product-page/the-allwize-k2)
+* [AllWize K2 Github repository](https://github.com/AllWize/AllWizeK2-hardware)
+* [AllWize K2 Schematic (PDF)](https://github.com/AllWize/AllWizeK2-hardware/raw/master/RevPA/AllWize%20K2%20-%20RevPA.pdf)
 
-* [https://www.allwize.io/product-page/the-allwize-k2 AllWize K2 product page]
-* [https://github.com/AllWize/AllWizeK2-hardware AllWize K2 Github repository]
-* [https://github.com/AllWize/AllWizeK2-hardware/raw/master/RevPA/AllWize%20K2%20-%20RevPA.pdf AllWize K2 Schematic (PDF)]
+## Schematic
 
-== Schematic ==
+![AllWize K2 RevPA Schematic](images/allwize_k2_schematic.png)
 
-[[File:Allwize_k2_schematic.png|800x600px|none|left|AllWize K2 RevPA Schematic]]
+## Features 
 
-== Features ==
+* **Arduino MKR form factor**, pin-compatible
+* **RadioCrafts RC1701HP-XXX** radio module supporting Wize protocol
+* **iPEX antenna connector** with the option to add an iPEX connector for an external antenna
 
-* '''Arduino MKR form factor''', pin-compatible
-* '''RadioCrafts RC1701HP-XXX''' radio module supporting Wize protocol
-* '''iPEX antenna connector''' with the option to add an iPEX connector for an external antenna
-
-== Description ==
+## Description 
 
 The AllWize K2 is a prototyping board with the same form factor as the MKR series by Arduino. It is based on a SAMD21G microcontroller by Atmel/Microchip which is much more powerful than the 8-bits microcontrollers like the ATMega328 in the Uno or Leonardo.
 
@@ -40,64 +43,64 @@ ATSAMD21G128A Features:
 
 The radio module, as with the AllWize K1, is a Radiocrafts RC1701HP with the WIZE firmware loaded (version 1.0 as of today).
 
-== Installation ==
+## Installation 
 
-=== Arduino IDE ===
+### Arduino IDE
 
 Starting with 1.6.4, Arduino allows installation of third-party platform packages using Boards Manager.
 
 * Install the current upstream Arduino IDE at the 1.8.7 level or later. The current version is on the Arduino website.
 * Start Arduino and open the Preferences window.
-* Enter https://raw.githubusercontent.com/AllWize/allwize-boards/master/package_allwize_boards_index.json into the Additional Board Manager URLs field. You can add multiple URLs, separating them with commas.
+* Enter ```https://raw.githubusercontent.com/AllWize/allwize-boards/master/package_allwize_boards_index.json``` into the Additional Board Manager URLs field. You can add multiple URLs, separating them with commas.
 
 
-[[File:Arduino-ide-preferences.png|800x600px|none|left|Arduino IDE Preferences]]
+![Arduino IDE Preferences](images/arduino_ide_preferences.png)
 
 
-* Open Boards Manager from Tools > Board menu and install "'''Allwize SAMD Boards (32-bits ARM Cortex-M0+)'''"
+* Open Boards Manager from Tools > Board menu and install "**Allwize SAMD Boards (32-bits ARM Cortex-M0+)**"
 
 
-[[File:Arduino-ide-board-manager.png|800x600px|none|left|Arduino IDE Board Manager]]
+![Arduino IDE Board Manager](images/arduino_ide_board_manager.png)
 
 
 * Don't forget to select your AllWize board from Tools > Board menu after installation.
 
 
-[[File:Arduino-ide-board-selection.png|800x600px|none|left|Arduino IDE Board Selection]]
+![Arduino IDE Board Selection](images/arduino_ide_board_selection.png)
 
 
-* Then you will need to install the '''AllWize library''' from the Arduino IDE Library Manager.
+* Then you will need to install the **AllWize library** from the Arduino IDE Library Manager.
 
 
-[[File:Arduino-ide-library-manager.png|800x600px|none|left|Arduino IDE Library Manager]]
+![Arduino IDE Library Manager](images/arduino_ide_library_manager.png)
 
 
-=== Platform IO ===
+### Platform IO
 
-PlatformIO compatibility is on the way (see https://github.com/platformio/platform-atmelsam/issues/71). 
+PlatformIO compatibility is on the way (see ```https://github.com/platformio/platform-atmelsam/issues/71```). 
 
 In the meantime you have two options to use the AllWize K2 from PlatformIO:
 
-==== Manually add support to it ====
+#### Manually add support to it
 
 You can modify your local copy of PlatformIO to include the required files. To do so, follow the next steps (here `<version>` is the latest folder, `0.1.1` as of August 2019):
 
-* checkout or download the [https://github.com/AllWize/allwize-boards allwize-boards repository]
+* checkout or download the [allwize-boards repository](https://github.com/AllWize/allwize-boards)
 * copy the `<version>/boards.txt` file to the Platformio `framework-arduinosam` package folder as `boards_allwize.txt`
 * copy the `<version>/variants/allwizek2` folder to the Platformio `framework-arduinosam` package `variants` folder
 * copy the `allwizek2.json` file to the Platformio `atmelsam` platform `boards` folder
 
 If using Linux, you have a script in the repository that does all these steps for you, just call it from the repo root folder with the version you want to install:
 
-<pre>
+```
 $ ./pio-install.sh 0.1.1
-</pre>
+```
 
-==== Configure the connections in your sketch ====
+#### Configure the connections in your sketch
 
 You can also configure the connections to the radio module manually from your script and build the code for the MKRZERO board like this:
 
-<pre>
+```
 #include "wiring_private.h"               // pinPeripheral() function
 #define RX_PIN                  (29ul)
 #define TX_PIN                  (26ul)
@@ -108,31 +111,31 @@ void SERCOM4_Handler() {
 }
 #define MODULE_SERIAL           SerialWize
 #define DEBUG_SERIAL            SerialUSB
-</pre>
+```
 
 And then initialize de GPIOs in your setup code:
 
-<pre>
+```
 pinPeripheral(RX_PIN, PIO_SERCOM_ALT);
 pinPeripheral(TX_PIN, PIO_SERCOM_ALT);
-</pre>
+```
 
-==== (future) Simple PlatformIO ====
+### (future) Simple PlatformIO
 
 Once it is included by the PlatformIO team you will be able to setup the board like this:
 
-<pre>
+```
 pio init -b allwizek2
 pio lib install AllWize
-</pre>
+```
 
 REMEMBER: This option is not yet supported!!
 
-== Example code ==
+## Example code
 
-=== Slave ===
+### Slave
 
-<pre>
+```
 /*
 
 AllWize - Simple Slave Example - AllWize K2
@@ -249,11 +252,11 @@ void loop() {
    delay(5000);
 
 }
-</pre>
+```
 
-=== Master ===
+### Master
 
-<pre>
+```
 /*
 
 AllWize - Simple Master Example - AllWize K2
@@ -394,4 +397,4 @@ void loop() {
     wizeLoop();
 
 }
-</pre>
+```

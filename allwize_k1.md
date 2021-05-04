@@ -1,20 +1,22 @@
-## AllWize K1
+---
+title: "AllWize K1"
+---
 
 The Allwize K1 Shield is an Arduino-compatible shield based on the RadioCrafts RC1701HP module.
 
 ![AllWize K1 RevB](images/allwize_k1.jpg)
 
-### Reference links
+## Reference links
 
 * [AllWize K1 product page](https://www.allwize.io/product-page/the-allwize-k1)
 * [AllWize K1 Github repository](https://github.com/AllWize/AllWizeK1-hardware)
 * [AllWize K1 Schematic (PDF)](https://github.com/AllWize/AllWizeK1-hardware/raw/master/RevPB/AllWize%20K1%20-%20RevPB.pdf)
 
-### Schematic
+## Schematic
 
 ![AllWize K1 RevB Schematic](images/allwize_k1_schematic.png)
 
-### Features
+## Features
 
 * **Arduino UNO R3 form factor**
 * **RadioCrafts RC1701HP-XXX** radio module supporting Wize protocol
@@ -23,7 +25,7 @@ The Allwize K1 Shield is an Arduino-compatible shield based on the RadioCrafts R
 * **SMA antenna connector** with the option to add an iPEX connector for an external antenna
 * Flexible PIN configuration for UART communcations from the host board to the radio module
 
-### Description
+## Description
 
 The radio module in the Allwize K1 Shield is a RadioCrafts RC1701HP-XXX. The module version available at the usual suppliers comes flashed with a Wireless-MBUS4 compatible firmware. Whilst the one in the Allwize K1 Shield sports a revisited version that aims to fully support the Wize protocol. The module is powered with 3V3 and has a UART port, a couple of GPIOs to drive status LEDs, a RESET and a CONFIG pins.
 
@@ -39,7 +41,7 @@ The Allwize K1 Shield RevPB also has an onboard MCP9701 temperature sensor, so y
 
 The antenna connector in the Allwize K1 Shield is an SMA connector. There are few 90 degrees 169MHz antennas available in the market (we have just spotted 1 model) so it is meant to place a straight antenna on top of the shield. This means the shield must be a "top shield". You can also use a iPEX connector for an external antenna. To do so you will have to remove the 0Ohm resistor closer to the SMA connector and solder an iPEX connector in place, using the now free pad closer to the radio module as the signal pad of the iPEX connector.
 
-### Connections
+## Connections
 
 |Component|Arduino pins|Notes|
 |---|---|---|
@@ -54,7 +56,7 @@ The antenna connector in the Allwize K1 Shield is an SMA connector. There are fe
 |Grove Digital|5 / 6| |
 |Grove Analog|A0 / A1| |
 
-### Supported boards
+## Supported boards
 
 |Board|Platform|Debug|Radio|Notes|
 |---|---|---|---|---|

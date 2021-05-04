@@ -3,7 +3,8 @@ description               : A review of products and projects by AllWize.io
 url                       :  https://allwize.github.io
 repository                : "allwize/allwize.github.io"
 
-theme                     : jekyll-theme-cayman
+remote_theme              : rundocs/jekyll-rtd-theme
+#theme                     : jekyll-theme-cayman
 breadcrumbs               : true
 
 markdown                  : kramdown
@@ -14,3 +15,6 @@ incremental               : false
 
 twitter:
   username                : &allwize
+
+github:
+  is_project_page         : false
